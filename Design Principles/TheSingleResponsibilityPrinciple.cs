@@ -1,7 +1,7 @@
 //Code without Single Responsibility Principle
 public class InvitationService
 {
-	public void SendInvite(string email, string firstName, string lastName)
+    public void SendInvite(string email, string firstName, string lastName)
     {
     	if(String.IsNullOrWhiteSpace(firstName) || String.IsNullOrWhiteSpace(lastName))
         {
