@@ -7,7 +7,8 @@ using System.Collections.Generic;
 //Only Rectangles
 namespace OCP
 {	
-	public class Rectangle{  
+	public class Rectangle
+	{  
    		private double _height;  
    		private double _width;
 		
@@ -20,20 +21,20 @@ namespace OCP
 		// Gets or sets the height
 		public double Height
 		{
-		  get { return _height; }
-		  set { _height = value; }
+			get { return _height; }
+		  	set { _height = value; }
 		}
 
 		// Gets or sets width
 		public double Width
 		{
-		  get { return _width; }
-		  set { _width = value; }
+			get { return _width; }
+		 	set { _width = value; }
 		}
 	} 
 
-	public class AreaCalculator {
-		
+	public class AreaCalculator 
+	{
    		public double TotalArea(List<Rectangle> arrRectangles)  
    		{  
 			double area = 0; 
@@ -67,7 +68,8 @@ namespace OCP
 //Rectangles and Circles
 namespace OCP
 {	
-	public class Rectangle{  
+	public class Rectangle
+	{  
    		private double _height;  
    		private double _width;
 		
@@ -80,19 +82,20 @@ namespace OCP
 		// Gets or sets the height
 		public double Height
 		{
-		  get { return _height; }
-		  set { _height = value; }
+			get { return _height; }
+			set { _height = value; }
 		}
 
 		// Gets or sets width
 		public double Width
 		{
-		  get { return _width; }
-		  set { _width = value; }
+			get { return _width; }
+			set { _width = value; }
 		}
 	}
 	
-	public class Circle{  
+	public class Circle
+	{  
    		private double _radius;
 		
 		public Circle(double radius)
@@ -103,8 +106,8 @@ namespace OCP
 		// Gets or sets radius
 		public double Radius
 		{
-		  get { return _radius; }
-		  set { _radius = value; }
+			get { return _radius; }
+			set { _radius = value; }
 		}
 	}
 
@@ -128,8 +131,8 @@ namespace OCP
 					objCircle = (Circle)obj;  
 					area += objCircle.Radius * objCircle.Radius * Math.PI;  
 				}  
-      		}  
-      		return area;  
+      			}  
+      			return area;  
    		}  
 	} 
 	
@@ -161,59 +164,63 @@ namespace OCP
 using System;
 using System.Collections.Generic;
 
-public interface IShape  
-{  
-   double Area();  
-}
-
-public class Rectangle: IShape  
-{  
-   public double Height {get;set;}  
-   public double Width {get;set;}  
-   
-   public double Area()  
-   {  
-      return Height * Width;  
-   }  
-}
-public class Circle: IShape  
-{  
-   public double Radius {get;set;}  
-   
-   public double Area()  
-   {  
-      return Radius * Radius * Math.PI;  
-   }  
-} 
-
-public class AreaCalculator  
-{  
-   public double TotalArea(List<IShape> listShapes)  
-   {  
-      double area=0;  
-      foreach(var objShape in listShapes)  
-      {  
-         area += objShape.Area();  
-      }  
-      return area;  
-   }  
-} 
-					
-public class Program
+namespace OCP
 {
-	public static void Main()
+	public interface IShape  
+	{  
+		double Area();  
+	}
+
+	public class Rectangle: IShape  
+	{  
+		public double Height {get;set;}  
+		public double Width {get;set;}  
+
+		public double Area()  
+		{  
+			return Height * Width;  
+		}  
+	}
+
+	public class Circle: IShape  
+	{  
+		public double Radius {get;set;}  
+
+		public double Area()  
+		{  
+			return Radius * Radius * Math.PI;  
+		}  
+	} 
+
+	public class AreaCalculator  
+	{  
+		public double TotalArea(List<IShape> listShapes)  
+		{  
+			double area=0;  
+			foreach(var objShape in listShapes)  
+			{  
+				area += objShape.Area();  
+			}  
+			return area;  
+		}  
+	} 
+
+	public class Program
 	{
-		List<IShape> shapes = new List<IShape>();
-		
-		var rectangle = new Rectangle() { Height = 50.00, Width = 30.50 };
-		shapes.Add(rectangle);
-		
-		var circle = new Circle() { Radius = 18.95 };
-		shapes.Add(circle);
-		
-		var calculator = new AreaCalculator();
-		var total = calculator.TotalArea(shapes);
-		Console.WriteLine(total);
+		public static void Main()
+		{
+			List<IShape> shapes = new List<IShape>();
+
+			var rectangle = new Rectangle() { Height = 50.00, Width = 30.50 };
+			shapes.Add(rectangle);
+
+			var circle = new Circle() { Radius = 18.95 };
+			shapes.Add(circle);
+
+			var calculator = new AreaCalculator();
+			var total = calculator.TotalArea(shapes);
+			Console.WriteLine(total);
+		}
 	}
 }
 
@@ -226,47 +233,47 @@ using System;
 namespace OCP
 {
 	public class Employee
-    {
+	{
 		private int _id;
-        private string _name;
+        	private string _name;
 		private string _employeeType;
 		
-        public Employee(int id, string name, string employeeType)
-        {
-            this._id = id;
-            this._name = name;
-            this._employeeType = employeeType;
-        }
+        	public Employee(int id, string name, string employeeType)
+        	{
+            		this._id = id;
+            		this._name = name;
+            		this._employeeType = employeeType;
+        	}
 		
 		// Gets or sets id
 		public int Id
 		{
-		  get { return _id; }
-		  set { _id = value; }
+			get { return _id; }
+			set { _id = value; }
 		}
 		
 		// Gets or sets name
 		public string Name
 		{
-		  get { return _name; }
-		  set { _name = value; }
+			get { return _name; }
+			set { _name = value; }
 		}
 		
 		// Gets or sets employeeType
 		public string EmployeeType
 		{
-		  get { return _employeeType; }
-		  set { _employeeType = value; }
+			get { return _employeeType; }
+			set { _employeeType = value; }
 		}
 		
-        public decimal CalculateBonus(decimal salary)
-        {
-            if (this._employeeType == "Permanent")
-                return salary * .1M;
-            else
-                return salary * .05M;
-        }
-    }
+        	public decimal CalculateBonus(decimal salary)
+        	{
+            		if (this._employeeType == "Permanent")
+                		return salary * .1M;
+            		else
+                		return salary * .05M;
+        	}
+    	}
 
 	public class Program
 	{
@@ -290,73 +297,74 @@ using System;
 namespace OCP
 {
 	public abstract class Employee
-    {
-        private int _id;
-        private string _name;
+    	{
+        	private int _id;
+        	private string _name;
        	
-        public Employee(int id, string name)
-        {
-        	this._id = id;
-            this._name = name;
-        }
+        	public Employee(int id, string name)
+        	{
+        		this._id = id;
+            		this._name = name;
+        	}
 		
 		// Gets or sets id
 		public int Id
 		{
-		  get { return _id; }
-		  set { _id = value; }
+			get { return _id; }
+			set { _id = value; }
 		}
 		
 		// Gets or sets name
 		public string Name
 		{
-		  get { return _name; }
-		  set { _name = value; }
+			get { return _name; }
+			set { _name = value; }
 		}
 		
-        public override string ToString()
-        {
-            return string.Format("ID : {0} Name : {1}", this._id, this._name);
-        }
+        	public override string ToString()
+        	{
+            		return string.Format("ID : {0} Name : {1}", this._id, this._name);
+        	}
 		
 		public abstract decimal CalculateBonus(decimal salary);
-    }
+	}
 
-    public class PermanentEmployee : Employee
-    {
-        public PermanentEmployee(int id, string name) 
+    	public class PermanentEmployee : Employee
+    	{
+        	public PermanentEmployee(int id, string name) 
 			: base(id, name)
-        { 
+        	{ 
 		}
 		
-        public override decimal CalculateBonus(decimal salary)
-        {
-            return salary * .1M;
-        }
-    }
+        	public override decimal CalculateBonus(decimal salary)
+        	{
+            		return salary * .1M;
+        	}
+    	}
 
-    public class TemporaryEmployee : Employee
-    {
-        public TemporaryEmployee(int id, string name) 
+    	public class TemporaryEmployee : Employee
+    	{
+        	public TemporaryEmployee(int id, string name) 
 			: base(id, name)
-        { 
+        	{ 
 		}
-        public override decimal CalculateBonus(decimal salary)
-        {
-            return salary * .05M;
-        }
-    }
+		
+        	public override decimal CalculateBonus(decimal salary)
+        	{
+            		return salary * .05M;
+        	}
+    	}
 
 	public class Program
 	{
 		public static void Main()
 		{
 			Employee empJohn = new PermanentEmployee(1, "John");
-            Employee empJason = new TemporaryEmployee(2, "Jason");
+            		Employee empJason = new TemporaryEmployee(2, "Jason");
            
-            Console.WriteLine("Employee {0} Bonus: {1}", empJohn.ToString(), empJohn.CalculateBonus(100000));
-            Console.WriteLine("Employee {0} Bonus: {1}", empJason.ToString(), empJason.CalculateBonus(150000));
-            Console.ReadLine();
+            		Console.WriteLine("Employee {0} Bonus: {1}", empJohn.ToString(), empJohn.CalculateBonus(100000));
+            		Console.WriteLine("Employee {0} Bonus: {1}", empJason.ToString(), empJason.CalculateBonus(150000));
+            		Console.ReadLine();
 		}
 	}
 }
