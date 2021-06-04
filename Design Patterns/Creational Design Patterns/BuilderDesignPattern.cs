@@ -10,10 +10,10 @@ namespace BuliderDP
 		// Builder uses a complex series of steps
 		public void Construct(VehicleBuilder vehicleBuilder)
 		{
-		  vehicleBuilder.BuildFrame();
-		  vehicleBuilder.BuildEngine();
-		  vehicleBuilder.BuildWheels();
-		  vehicleBuilder.BuildDoors();
+			vehicleBuilder.BuildFrame();
+		  	vehicleBuilder.BuildEngine();
+		  	vehicleBuilder.BuildWheels();
+		  	vehicleBuilder.BuildDoors();
 		}
 	}
 	
@@ -27,7 +27,7 @@ namespace BuliderDP
 		// Gets vehicle instance
 		public Vehicle Vehicle
 		{
-		  get { return vehicle; }
+			get { return vehicle; }
 		}
 
 		// Abstract build methods
@@ -44,27 +44,27 @@ namespace BuliderDP
 	{
 		public MotorCycleBuilder()
 		{
-		  vehicle = new Vehicle("MotorCycle");
+			vehicle = new Vehicle("MotorCycle");
 		}
 
 		public override void BuildFrame()
 		{
-		  vehicle["frame"] = "MotorCycle Frame";
+		  	vehicle["frame"] = "MotorCycle Frame";
 		}
 
 		public override void BuildEngine()
 		{
-		  vehicle["engine"] = "500 cc";
+		  	vehicle["engine"] = "500 cc";
 		}
 
 		public override void BuildWheels()
 		{
-		  vehicle["wheels"] = "2";
+		  	vehicle["wheels"] = "2";
 		}
 
 		public override void BuildDoors()
 		{
-		  vehicle["doors"] = "0";
+		  	vehicle["doors"] = "0";
 		}
 	}
  
@@ -73,27 +73,27 @@ namespace BuliderDP
 	{
 		public CarBuilder()
 		{
-		  vehicle = new Vehicle("Car");
+			vehicle = new Vehicle("Car");
 		}
 
 		public override void BuildFrame()
 		{
-		  vehicle["frame"] = "Car Frame";
+			vehicle["frame"] = "Car Frame";
 		}
 
 		public override void BuildEngine()
 		{
-		  vehicle["engine"] = "2500 cc";
+			vehicle["engine"] = "2500 cc";
 		}
 
 		public override void BuildWheels()
 		{
-		  vehicle["wheels"] = "4";
+			vehicle["wheels"] = "4";
 		}
 
 		public override void BuildDoors()
 		{
-		  vehicle["doors"] = "4";
+			vehicle["doors"] = "4";
 		}
 	}
  
@@ -102,27 +102,27 @@ namespace BuliderDP
 	{
 		public ScooterBuilder()
 		{
-		  vehicle = new Vehicle("Scooter");
+			vehicle = new Vehicle("Scooter");
 		}
 
 		public override void BuildFrame()
 		{
-		  vehicle["frame"] = "Scooter Frame";
+			vehicle["frame"] = "Scooter Frame";
 		}
 
 		public override void BuildEngine()
 		{
-		  vehicle["engine"] = "50 cc";
+			vehicle["engine"] = "50 cc";
 		}
 
 		public override void BuildWheels()
 		{
-		  vehicle["wheels"] = "2";
+			vehicle["wheels"] = "2";
 		}
 
 		public override void BuildDoors()
 		{
-		  vehicle["doors"] = "0";
+			vehicle["doors"] = "0";
 		}
 	}
 	
@@ -137,24 +137,24 @@ namespace BuliderDP
 		// Constructor
 		public Vehicle(string vehicleType)
 		{
-		  this._vehicleType = vehicleType;
+			this._vehicleType = vehicleType;
 		}
 
 		// Indexer
 		public string this[string key]
 		{
-		  get { return _parts[key]; }
-		  set { _parts[key] = value; }
+			get { return _parts[key]; }
+			set { _parts[key] = value; }
 		}
 
 		public void Show()
 		{
-		  Console.WriteLine("\n---------------------------");
-		  Console.WriteLine("Vehicle Type: {0}", _vehicleType);
-		  Console.WriteLine(" Frame : {0}", _parts["frame"]);
-		  Console.WriteLine(" Engine : {0}", _parts["engine"]);
-		  Console.WriteLine(" #Wheels: {0}", _parts["wheels"]);
-		  Console.WriteLine(" #Doors : {0}", _parts["doors"]);
+			Console.WriteLine("\n---------------------------");
+		  	Console.WriteLine("Vehicle Type: {0}", _vehicleType);
+		  	Console.WriteLine(" Frame : {0}", _parts["frame"]);
+		  	Console.WriteLine(" Engine : {0}", _parts["engine"]);
+		  	Console.WriteLine(" #Wheels: {0}", _parts["wheels"]);
+		  	Console.WriteLine(" #Doors : {0}", _parts["doors"]);
 		}
 	}
 	
@@ -168,25 +168,25 @@ namespace BuliderDP
 			VehicleBuilder builder;
  
 			//Director
-      		//Create shop with vehicle builders
-      		Shop shop = new Shop();
+      			//Create shop with vehicle builders
+      			Shop shop = new Shop();
  
-      		// Construct and display vehicles
-      		builder = new ScooterBuilder();
-      		shop.Construct(builder);
+      			// Construct and display vehicles
+      			builder = new ScooterBuilder();
+      			shop.Construct(builder);
 			//call base class VehicleBuilder
-      		builder.Vehicle.Show();
+      			builder.Vehicle.Show();
  
-      		builder = new CarBuilder();
-      		shop.Construct(builder);
-      		builder.Vehicle.Show();
+      			builder = new CarBuilder();
+      			shop.Construct(builder);
+      			builder.Vehicle.Show();
  
-      		builder = new MotorCycleBuilder();
-      		shop.Construct(builder);
-      		builder.Vehicle.Show();
+      			builder = new MotorCycleBuilder();
+      			shop.Construct(builder);
+      			builder.Vehicle.Show();
  
-      		// Wait for user
-      		Console.ReadLine();	
+      			// Wait for user
+      			Console.ReadLine();	
 		}
 	}
 }
