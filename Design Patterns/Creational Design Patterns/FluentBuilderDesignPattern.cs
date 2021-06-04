@@ -9,11 +9,11 @@ namespace FluentBuliderDP
 		// Builder uses a complex series of steps
 		public void Construct(VehicleBuilder vehicleBuilder)
 		{
-		  //4.
-		  vehicleBuilder.BuildFrame()
-		  				.BuildEngine()
-		  				.BuildWheels()
-		  				.BuildDoors();
+			//4.
+		  	vehicleBuilder.BuildFrame()
+		  		.BuildEngine()
+		  		.BuildWheels()
+		  		.BuildDoors();
 		}
 	}
 	
@@ -27,7 +27,7 @@ namespace FluentBuliderDP
 		// Gets vehicle instance
 		public Vehicle Vehicle
 		{
-		  get { return vehicle; }
+			get { return vehicle; }
 		}
 
 		// Abstract build methods
@@ -46,34 +46,34 @@ namespace FluentBuliderDP
 	{
 		public MotorCycleBuilder()
 		{
-		  vehicle = new Vehicle("MotorCycle");
+			vehicle = new Vehicle("MotorCycle");
 		}
 
 		//2.
 		//public override void BuildFrame()
 		public override VehicleBuilder BuildFrame()
 		{
-		  vehicle["frame"] = "MotorCycle Frame";
-		  //3.
-		  return this;
+			vehicle["frame"] = "MotorCycle Frame";
+		  	//3.
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildEngine()
 		{
-		  vehicle["engine"] = "500 cc";
-		  return this;
+			vehicle["engine"] = "500 cc";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildWheels()
 		{
-		  vehicle["wheels"] = "2";
-		  return this;
+			vehicle["wheels"] = "2";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildDoors()
 		{
-		  vehicle["doors"] = "0";
-		  return this;
+			vehicle["doors"] = "0";
+		  	return this;
 		}
 	}
  
@@ -82,31 +82,31 @@ namespace FluentBuliderDP
 	{
 		public CarBuilder()
 		{
-		  vehicle = new Vehicle("Car");
+			vehicle = new Vehicle("Car");
 		}
 
 		public override VehicleBuilder BuildFrame()
 		{
-		  vehicle["frame"] = "Car Frame";
-		  return this;
+		  	vehicle["frame"] = "Car Frame";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildEngine()
 		{
-		  vehicle["engine"] = "2500 cc";
-		  return this;
+			vehicle["engine"] = "2500 cc";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildWheels()
 		{
-		  vehicle["wheels"] = "4";
-		  return this;
+			vehicle["wheels"] = "4";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildDoors()
 		{
-		  vehicle["doors"] = "4";
-		  return this;
+			vehicle["doors"] = "4";
+		  	return this;
 		}
 	}
  
@@ -115,31 +115,31 @@ namespace FluentBuliderDP
 	{
 		public ScooterBuilder()
 		{
-		  vehicle = new Vehicle("Scooter");
+			vehicle = new Vehicle("Scooter");
 		}
 
 		public override VehicleBuilder BuildFrame()
 		{
-		  vehicle["frame"] = "Scooter Frame";
-		  return this;
+		  	vehicle["frame"] = "Scooter Frame";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildEngine()
 		{
-		  vehicle["engine"] = "50 cc";
-		  return this;
+			vehicle["engine"] = "50 cc";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildWheels()
 		{
-		  vehicle["wheels"] = "2";
-		  return this;
+			vehicle["wheels"] = "2";
+		  	return this;
 		}
 
 		public override VehicleBuilder BuildDoors()
 		{
-		  vehicle["doors"] = "0";
-		  return this;
+			vehicle["doors"] = "0";
+		  	return this;
 		}
 	}
 	
@@ -154,24 +154,24 @@ namespace FluentBuliderDP
 		// Constructor
 		public Vehicle(string vehicleType)
 		{
-		  this._vehicleType = vehicleType;
+			this._vehicleType = vehicleType;
 		}
 
 		// Indexer
 		public string this[string key]
 		{
-		  get { return _parts[key]; }
-		  set { _parts[key] = value; }
+			get { return _parts[key]; }
+		  	set { _parts[key] = value; }
 		}
 
 		public void Show()
 		{
-		  Console.WriteLine("\n---------------------------");
-		  Console.WriteLine("Vehicle Type: {0}", _vehicleType);
-		  Console.WriteLine(" Frame : {0}", _parts["frame"]);
-		  Console.WriteLine(" Engine : {0}", _parts["engine"]);
-		  Console.WriteLine(" #Wheels: {0}", _parts["wheels"]);
-		  Console.WriteLine(" #Doors : {0}", _parts["doors"]);
+			Console.WriteLine("\n---------------------------");
+		  	Console.WriteLine("Vehicle Type: {0}", _vehicleType);
+		  	Console.WriteLine(" Frame : {0}", _parts["frame"]);
+		  	Console.WriteLine(" Engine : {0}", _parts["engine"]);
+		  	Console.WriteLine(" #Wheels: {0}", _parts["wheels"]);
+		  	Console.WriteLine(" #Doors : {0}", _parts["doors"]);
 		}
 	}
 
@@ -183,25 +183,25 @@ namespace FluentBuliderDP
 			VehicleBuilder builder;
  
 			//Director
-      		// Create shop with vehicle builders
-      		Shop shop = new Shop();
+      			// Create shop with vehicle builders
+      			Shop shop = new Shop();
  
-      		// Construct and display vehicles
-      		builder = new ScooterBuilder();
-      		shop.Construct(builder);
-			    //call base class VehicleBuilder
-      		builder.Vehicle.Show();
+      			// Construct and display vehicles
+      			builder = new ScooterBuilder();
+      			shop.Construct(builder);
+			//call base class VehicleBuilder
+      			builder.Vehicle.Show();
  
-      		builder = new CarBuilder();
-      		shop.Construct(builder);
-      		builder.Vehicle.Show();
+      			builder = new CarBuilder();
+      			shop.Construct(builder);
+      			builder.Vehicle.Show();
  
-      		builder = new MotorCycleBuilder();
-      		shop.Construct(builder);
-      		builder.Vehicle.Show();
+      			builder = new MotorCycleBuilder();
+      			shop.Construct(builder);
+      			builder.Vehicle.Show();
  
-      		// Wait for user
-      		Console.ReadLine();	
+      			// Wait for user
+      			Console.ReadLine();	
 		}
 	}
 }
