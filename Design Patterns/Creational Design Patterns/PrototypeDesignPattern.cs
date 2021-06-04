@@ -13,9 +13,9 @@ namespace PrototypeDP
 		public abstract SandwichPrototype Clone();
 	}
 	
-  /// <summary>
-  /// The ConcretePrototype class
-  /// <summary>
+  	/// <summary>
+  	/// The ConcretePrototype class
+  	/// <summary>
 	class Sandwich : SandwichPrototype
 	{
 		private string Bread;
