@@ -125,8 +125,8 @@ namespace FactoryMethodDP
 	{
 		public static void Main()
 		{
-		      var turkeySandwich = new TurkeySandwich();
-        	var dagwood = new Dagwood();
+			var turkeySandwich = new TurkeySandwich();
+        		var dagwood = new Dagwood();
 		}
 	}
 }
@@ -197,12 +197,12 @@ namespace FactoryMethodDP
 		// Constructor calls abstract Factory method
 		public Document()
 		{
-		  this.CreatePages();
+			this.CreatePages();
 		}
 
 		public List<Page> Pages
 		{
-		  get { return _pages; }
+			get { return _pages; }
 		}
 
 		// Factory Method
@@ -214,12 +214,12 @@ namespace FactoryMethodDP
 	/// A 'ConcreteCreator' class
 	class Resume : Document
   	{
-    	// Factory Method implementation
+    		// Factory Method implementation
 		public override void CreatePages()
 		{
-		  Pages.Add(new SkillsPage());
-		  Pages.Add(new EducationPage());
-		  Pages.Add(new ExperiencePage());
+			Pages.Add(new SkillsPage());
+		  	Pages.Add(new EducationPage());
+		  	Pages.Add(new ExperiencePage());
 		}
   	}
  
@@ -229,11 +229,11 @@ namespace FactoryMethodDP
 		// Factory Method implementation
 		public override void CreatePages()
 		{
-		  Pages.Add(new IntroductionPage());
-		  Pages.Add(new ResultsPage());
-		  Pages.Add(new ConclusionPage());
-		  Pages.Add(new SummaryPage());
-		  Pages.Add(new BibliographyPage());
+			Pages.Add(new IntroductionPage());
+		  	Pages.Add(new ResultsPage());
+		  	Pages.Add(new ConclusionPage());
+		  	Pages.Add(new SummaryPage());
+		  	Pages.Add(new BibliographyPage());
 		}
 	}
 	
@@ -241,22 +241,22 @@ namespace FactoryMethodDP
 	{
 		public static void Main()
 		{
-      		Document[] documents = new Document[2];
+      			Document[] documents = new Document[2];
  
-      		documents[0] = new Resume();
-      		documents[1] = new Report();
+      			documents[0] = new Resume();
+      			documents[1] = new Report();
  
-      		foreach (Document document in documents)
-      		{
-        		Console.WriteLine("\n" + document.GetType().Name + "--");
-        		foreach (Page page in document.Pages)
-        		{
-          			Console.WriteLine(" " + page.GetType().Name);
-        		}
-      		}
+      			foreach (Document document in documents)
+      			{
+        			Console.WriteLine("\n" + document.GetType().Name + "--");
+        			foreach (Page page in document.Pages)
+        			{
+          				Console.WriteLine(" " + page.GetType().Name);
+        			}
+      			}
  
-      		// Wait for user
-      		Console.ReadLine();
+      			// Wait for user
+      			Console.ReadLine();
 		}
 	}
 }
