@@ -68,10 +68,10 @@ namespace ProxyDP
 	{
 		private readonly IServer _iserver;
 
-        public Serving(IServer iserver)
-        {
-            this._iserver = iserver;
-        }
+        	public Serving(IServer iserver)
+        	{
+            		this._iserver = iserver;
+        	}
 		
 		public void Proccess(string order, string payment)
 		{
