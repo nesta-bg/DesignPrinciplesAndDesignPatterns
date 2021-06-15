@@ -6,37 +6,37 @@ namespace InterpreterdDP
 	// The 'Context' class
 	class Context
   	{
-    	private string _input;
-    	private int _output;
+    		private string _input;
+    		private int _output;
  
-    	// Constructor
-    	public Context(string input)
-    	{
-      		this._input = input;
-    	}
+    		// Constructor
+    		public Context(string input)
+    		{
+      			this._input = input;
+    		}
  
-    	// Gets or sets input
-    	public string Input
-    	{
-      		get { return _input; }
-      		set { _input = value; }
-    	}
+    		// Gets or sets input
+    		public string Input
+    		{
+      			get { return _input; }
+      			set { _input = value; }
+    		}
  
-    	// Gets or sets output
-    	public int Output
-    	{
-      		get { return _output; }
-      		set { _output = value; }
-    	}
+    		// Gets or sets output
+    		public int Output
+    		{
+      			get { return _output; }
+      			set { _output = value; }
+    		}
   	}
  
 	// The 'AbstractExpression' class
 	abstract class Expression
   	{
-    	public void Interpret(Context context)
-    	{
-      		if (context.Input.Length == 0)
-        	return;
+    		public void Interpret(Context context)
+    		{
+      			if (context.Input.Length == 0)
+        			return;
  
 		  	if (context.Input.StartsWith(Nine()))
 		  	{
@@ -59,13 +59,13 @@ namespace InterpreterdDP
 				context.Output += (1 * Multiplier());
 				context.Input = context.Input.Substring(1);
 		  	}
-    	}
+    		}
  
-    	public abstract string One();
-    	public abstract string Four();
-    	public abstract string Five();
-    	public abstract string Nine();
-    	public abstract int Multiplier();
+    		public abstract string One();
+    		public abstract string Four();
+    		public abstract string Five();
+    		public abstract string Nine();
+    		public abstract int Multiplier();
 	}
 
 	/// A 'TerminalExpression' class
@@ -75,11 +75,11 @@ namespace InterpreterdDP
 
 	class ThousandExpression : Expression
   	{
-    	public override string One() { return "M"; }
-    	public override string Four() { return " "; }
-    	public override string Five() { return " "; }
-    	public override string Nine() { return " "; }
-    	public override int Multiplier() { return 1000; }
+    		public override string One() { return "M"; }
+    		public override string Four() { return " "; }
+    		public override string Five() { return " "; }
+    		public override string Nine() { return " "; }
+    		public override int Multiplier() { return 1000; }
   	}
 
 	/// A 'TerminalExpression' class
@@ -131,24 +131,24 @@ namespace InterpreterdDP
 		public static void Main(string[] args)
 		{
 			string roman = "MCMXXVIII";
-      		Context context = new Context(roman);
+      			Context context = new Context(roman);
  
-      		// Build the 'parse tree'
-      		List<Expression> tree = new List<Expression>();
-      		tree.Add(new ThousandExpression());
-      		tree.Add(new HundredExpression());
-      		tree.Add(new TenExpression());
-      		tree.Add(new OneExpression());
+      			// Build the 'parse tree'
+      			List<Expression> tree = new List<Expression>();
+      			tree.Add(new ThousandExpression());
+      			tree.Add(new HundredExpression());
+      			tree.Add(new TenExpression());
+      			tree.Add(new OneExpression());
  
-      		// Interpret
-      		foreach (Expression exp in tree)
-      		{
-        		exp.Interpret(context);
-      		}
+      			// Interpret
+      			foreach (Expression exp in tree)
+      			{
+        			exp.Interpret(context);
+      			}
  
-      		Console.WriteLine("{0} = {1}", roman, context.Output);
+      			Console.WriteLine("{0} = {1}", roman, context.Output);
  
-      		Console.ReadLine();
+      			Console.ReadLine();
 		}
 	}
 }
