@@ -6,7 +6,7 @@ namespace VisitorDP
 	/// The 'Visitor' interface
 	interface IVisitor
 	{
-    	void Visit(Element element);
+    		void Visit(Element element);
   	}
  
 	/// A 'ConcreteVisitor' class
@@ -27,13 +27,13 @@ namespace VisitorDP
 	{
 		public void Visit(Element element)
 		{
-		  Employee employee = element as Employee;
+			Employee employee = element as Employee;
 
-		  // Provide 3 extra vacation days
-		  employee.VacationDays += 3;
-		  Console.WriteLine("{0} {1}'s new vacation days: {2}",
-			employee.GetType().Name, employee.Name,
-			employee.VacationDays);
+		  	// Provide 3 extra vacation days
+		  	employee.VacationDays += 3;
+		  	Console.WriteLine("{0} {1}'s new vacation days: {2}",
+				employee.GetType().Name, employee.Name,
+				employee.VacationDays);
 		}
 	}
 	
@@ -55,35 +55,35 @@ namespace VisitorDP
 		// Constructor
 		public Employee(string name, double income, int vacationDays)
 		{
-		  this._name = name;
-		  this._income = income;
-		  this._vacationDays = vacationDays;
+			this._name = name;
+		  	this._income = income;
+		  	this._vacationDays = vacationDays;
 		}
 
 		// Gets or sets the name
 		public string Name
 		{
-		  get { return _name; }
-		  set { _name = value; }
+			get { return _name; }
+		  	set { _name = value; }
 		}
 
 		// Gets or sets income
 		public double Income
 		{
-		  get { return _income; }
-		  set { _income = value; }
+			get { return _income; }
+		  	set { _income = value; }
 		}
 
 		// Gets or sets number of vacation days
 		public int VacationDays
 		{
-		  get { return _vacationDays; }
-		  set { _vacationDays = value; }
+			get { return _vacationDays; }
+		  	set { _vacationDays = value; }
 		}
 
 		public override void Accept(IVisitor visitor)
 		{
-		  visitor.Visit(this);
+			visitor.Visit(this);
 		}
 	}
 	
@@ -96,21 +96,21 @@ namespace VisitorDP
 
 		public void Attach(Employee employee)
 		{
-		  _employees.Add(employee);
+			_employees.Add(employee);
 		}
 
 		public void Detach(Employee employee)
 		{
-		  _employees.Remove(employee);
+			_employees.Remove(employee);
 		}
 
 		public void Accept(IVisitor visitor)
 		{
-		  foreach (Employee e in _employees)
-		  {
-			e.Accept(visitor);
-		  }
-		  Console.WriteLine();
+			foreach (Employee e in _employees)
+		  	{
+				e.Accept(visitor);
+		  	}
+		  	Console.WriteLine();
 		}
 	}
 
@@ -121,16 +121,16 @@ namespace VisitorDP
 	{
 		// Constructor
 		public Clerk()
-		  : base("Hank", 25000.0, 14)
+			: base("Hank", 25000.0, 14)
 		{
 		}
 	}
  
 	class Director : Employee
   	{
-    	// Constructor
+    		// Constructor
 		public Director()
-		  : base("Elly", 35000.0, 16)
+			: base("Elly", 35000.0, 16)
 		{
 		}
 	}
@@ -139,7 +139,7 @@ namespace VisitorDP
 	{
 		// Constructor
 		public President()
-		  : base("Dick", 45000.0, 21)
+			: base("Dick", 45000.0, 21)
 		{
 		}
 	}
@@ -150,7 +150,7 @@ namespace VisitorDP
 		{
 			// The 'ObjectStructure'
 			// Setup employee collection
-      		Employees e = new Employees();
+      			Employees e = new Employees();
 		  	e.Attach(new Clerk());
 			e.Attach(new Director());
 			e.Attach(new President());
