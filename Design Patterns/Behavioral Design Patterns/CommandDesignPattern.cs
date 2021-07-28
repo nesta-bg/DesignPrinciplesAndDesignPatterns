@@ -1,3 +1,5 @@
+//================================FIRST EXAMPLE==========================================//
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -203,3 +205,69 @@ namespace CommandDP
 		}
 	}
 }
+
+//================================SECOND EXAMPLE==========================================//
+
+using System;
+
+public class Controller
+{
+	public ICommand[] Commands { get; } = new ICommand[3];
+}
+
+//===================================================//
+
+public interface ICommand
+{
+	void Execute();
+}
+
+public class TvCommand : ICommand
+{
+	private readonly ITv _tv;
+
+	public TvCommand(ITv tv)
+    	{
+    		_tv = tv;
+    	}
+
+	public void Execute()
+    	{
+    		_tv.TvIsOn = !_tv.TvIsOn;
+    	}
+}
+
+//===================================================//
+
+public interface ITv
+{
+	bool TvIsOn { get; set; }
+}
+
+public class Tv : ITv
+{
+	public bool TvIsOn { get; set; }
+}
+
+//===================================================//
+
+[TestFixture]
+public class CommandTests
+{
+	[Test]
+        public void ShouldTurnTheTvOnAndOff()
+        {
+        	var tv = new Tv();
+            
+		var c = new Controller();
+		
+	 	c.Commands[0] = new TvCommand(tv);	
+		Assert.IsFalse(tv.TvIsOn);
+            	
+		c.Commands[0].Execute();
+            	Assert.IsTrue(tv.TvIsOn);
+		
+            	c.DemoCommands[0].Execute();
+            	Assert.IsFalse(tv.TvIsOn);
+        }
+    }
